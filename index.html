@@ -199,6 +199,14 @@
                         data-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </a>
+                        <div class="btn-group" id="carouselButton">
+                            <button class="btn-danger btn-sm" id="carousel-pause">
+                                <span class="fa fa-pause"></span>
+                            </button>
+                            <button class="btn-danger btn-sm" id="carousel-play">
+                                    <span class="fa fa-play"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>        
         <div class="row row-content align-items-center">
@@ -294,11 +302,23 @@
         </div>
     </footer>
 
+
 </body>
  <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
  <!-- jQuery and popper are the dependency of bootstrap -->
  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+ <script>
+     $(document).ready(function(){
+        $('#mycarousel').carousel(function(){ interval: 2000});
+        $('#carousel-pause').click(function(){
+            $('#mycarousel').carousel('pause');
+        });
+        $('#carousel-play').click(function(){
+            $('#mycarousal').carousel('cycle');
+        });
+     });
+ </script>
  
 </html>
