@@ -12,7 +12,7 @@
      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
      <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
      <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -33,18 +33,30 @@
                         </ul>
             </div>
             <span class="navbar-text">
-                <a data-toggle="modal" data-target="#loginModal"><span class="fa fa-sign-in"> Login</span></a>
+                <a id="login" ><span class="fa fa-sign-in"> Login</span></a>
             </span>
             
         </div>
     </nav>
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
+            <!--Modal content-->
+            <div class="modal-content" id="login-modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ReservationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
             <!---Modal Content-->
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" >Reserve a Table</h4>
-                    <button class="close" type="button" data-dismiss="modal" >
+                    <button class="close" type="button" id="close">
                         &times;
                     </button>
                 </div>
@@ -115,10 +127,10 @@
                                     </div>                           
                         </div>
                         <div class="form-row">
-                            <div class="btn-group offset-2" role="group" data-toggle="button">
-                                    <button type="button" class="btn btn-secondary   ml-1" data-dismiss="modal">Cancel
+                            <div class="btn-group offset-2" role="group">
+                                    <button type="button" class="btn btn-secondary ml-1" id="Cancel" >Cancel
                                         </button>
-                                        <button type="submit" class="btn btn-primary   ml-1">Reserve
+                                        <button type="submit" class="btn btn-primary ml-1">Reserve
                                         </button>
                             </div>
                             
@@ -259,7 +271,7 @@
 
     <footer class="footer">
         <div>
-            <div class="row ">             
+            <div class="row">             
                 <div class="col-5 col-sm-4 offset-1 col-md-3">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
@@ -322,6 +334,19 @@
                     $("#carouselButton").children("span").addClass("fa-pause");
                 }
             });
+        
+            $('#login').click(function(){
+                $('#ReservationModal').modal('show');
+            });
+            $('#Cancel').click(function(){
+                $('#ReservationModal').modal('hide');
+            });
+            $('#close').click(function(){
+                $('#ReservationModal').modal('hide');
+            });
+
+            
+          
         });
         
     
