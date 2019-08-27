@@ -33,7 +33,7 @@
                         </ul>
             </div>
             <span class="navbar-text">
-                <a id="login" ><span class="fa fa-sign-in"> Login</span></a>
+                <a id="login"><span class="fa fa-sign-in"> Login</span></a>
             </span>
             
         </div>
@@ -44,7 +44,33 @@
             <div class="modal-content" id="login-modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
+                    <button class="close" type="button" data-dismiss="modal">&times;</button>
 
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-12 col-md-4">
+                                            <input class="form-control" type="email" id="Email" name="EmailAddress" placeholder="Enter email">
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                            <input class="form-control" type="password" id="Password" name="Password" placeholder="Password">
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="approve" name="approve" value="">
+                                        <label for="approve" class="form-check-label">Remember me</label>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-secondary btn-sm ml-auto" id="CancelLogin">Cancel</button>
+                                    <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+
+                                </div>
+                        </div>
+                        
+                    </form>
                 </div>
             </div>
         </div>
@@ -67,32 +93,32 @@
                                         <h6>Number of Guest</h6>
                                     </div>
                                     <div class="col-12 col-sm-10">
-                                        <form>
-                                            <div class="row ml-0">
-                                                <div class=" radio col-auto active">
-                                                    <label class="form-check-label"><input type="radio" name="one" class="form-check-input" checked>1</label>
-                                                </div>
-                                                <div class=" radio col-auto">
-                                                        <label class="form-check-label"><input type="radio" name="two" class="form-check-input">2</label>
-                                                </div>
-                                                <div class=" radio col-auto">
-                                                        <label class="form-check-label"><input type="radio" name="three" class="form-check-input">3</label>
-                                                </div>
-                                                <div class=" radio col-auto">
-                                                        <label class="form-check-label"><input type="radio" name="four" class="form-check-input">4</label>
-                                                </div>
-                                                <div class=" radio col-auto">
-                                                        <label class="form-check-label"><input type="radio" name="five" class="form-check-input">5</label>
-                                                </div>
-                                                <div class=" radio col-auto">
-                                                        <label class="form-check-label"><input type="radio" name="six" class="form-check-input">6</label>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        
+                                            <form>
+                                                    <label class="radio-inline mr-1">
+                                                      <input class="btn" type="radio" name="optradio" checked> 1
+                                                    </label>
+                                                    <label class="radio-inline mr-1">
+                                                      <input class="btn" type="radio" name="optradio"> 2
+                                                    </label>
+                                                    <label class="radio-inline mr-1">
+                                                      <input  class="btn" type="radio" name="optradio"> 3
+                                                    </label>
+                                                    <label class="radio-inline mr-1">
+                                                        <input class="btn" type="radio" name="optradio"> 4
+                                                    </label>
+                                                    <label class="radio-inline mr-1">
+                                                            <input class="btn" type="radio" name="optradio"> 5
+                                                    </label>
+                                                    <label class="radio-inline mr-1">
+                                                            <input class="btn" type="radio" name="optradio"> 6
+                                                    </label>
+                                            </form>
+                                        
                                 </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-2">
+                        <div class="form-row mt-2">
+                            <div class="col-12 col-sm-2 ">
                                 <h6>Section</h6>
                             </div>
                             <div class="col-12 col-sm-10">
@@ -103,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row mt-2">
                                 <div class="col-12 col-sm-2 mt-2">
                                         <h6>Date and Time</h6>
                                     </div>
@@ -126,9 +152,9 @@
                                             </div>
                                     </div>                           
                         </div>
-                        <div class="form-row">
-                            <div class="btn-group offset-2" role="group">
-                                    <button type="button" class="btn btn-secondary ml-1" id="Cancel" >Cancel
+                        <div class="form-row mt-2">
+                            <div class="offset-2" role="group">
+                                    <button type="button" class="btn btn-secondary ml-1" id="CancelReserve" >Cancel
                                         </button>
                                         <button type="submit" class="btn btn-primary ml-1">Reserve
                                         </button>
@@ -157,7 +183,7 @@
         
                         </div>
                         <div class="col-12 col-sm-6 align-self-center m-auto">
-                            <button class="btn bg-warning btn-block btn-lg" type="button"><a style="text-decoration: none;color:black;" data-toggle="modal" data-target="#loginModal" >Reserve Table</a></button>
+                            <button class="btn bg-warning btn-block btn-lg" type="button"><a style="text-decoration: none;color:black;" id="ReservationTable" >Reserve Table</a></button>
 
                         </div>
                 </div>
@@ -336,10 +362,16 @@
             });
         
             $('#login').click(function(){
-                $('#ReservationModal').modal('show');
+                $('#loginModal').modal('show');
             });
-            $('#Cancel').click(function(){
+            $('#CancelLogin').click(function(){
+                $('#loginModal').modal('hide');
+            });
+            $('#CancelReserve').click(function(){
                 $('#ReservationModal').modal('hide');
+            });
+            $('#ReservationTable').click(function(){
+                $('#ReservationModal').modal('show');
             });
             $('#close').click(function(){
                 $('#ReservationModal').modal('hide');
